@@ -16,7 +16,7 @@ export default function Navbar() {
         position="fixed"
         sx={{ xs: 3, bgcolor: "#249EA0", width: "100%" }}
       >
-        <Box sx={{ flexGrow: 1, width: "100%", ml: 2 }}>
+        <Box sx={{ flexGrow: 1, width: "100%", ml: 1 }}>
           <IconButton sx={{ color: "#fff" }}>
             <ArrowBackIosNewIcon style={{ fontSize: 20 }} />
             <Typography

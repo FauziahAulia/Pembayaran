@@ -1,26 +1,23 @@
 const messageExamples = [
   {
-    primary: "Brunch this week?",
-    secondary:
-      "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-    person: "/static/images/avatar/5.jpg",
+    primary: "Damar Putra Jaya",
+    secondary: "Pembayaran iuran bulanan januari",
+    person: require("../Image/ava2.jpg"),
   },
   {
-    primary: "Birthday Gift",
-    secondary: `Do you have a suggestion for a good present for John on his work
-        anniversary. I am really confused & would love your thoughts on it.`,
-    person: "/static/images/avatar/1.jpg",
+    primary: "Atika Putri",
+    secondary: "Pembayaran pendaftaran",
+    person: require("../Image/ava1.jpg"),
   },
   {
-    primary: "Recipe to try",
-    secondary:
-      "I am try out this new BBQ recipe, I think this might be amazing",
-    person: "/static/images/avatar/2.jpg",
+    primary: "Muhammad Kemal",
+    secondary: "Pembelian sabuk hijau",
+    person: require("../Image/ava4.jpg"),
   },
   {
-    primary: "Yes!",
-    secondary: "I have the tickets to the ReactConf for this year.",
-    person: "/static/images/avatar/3.jpg",
+    primary: "Kiki",
+    secondary: "Tarik tunai",
+    person: require("../Image/ava3.jpg"),
   },
 ];
 

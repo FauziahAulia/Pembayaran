@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
-import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -14,13 +13,13 @@ import messageExamples from "./ListData";
 function refreshMessages() {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
-  return Array.from(new Array(50)).map(
+  return Array.from(new Array(10)).map(
     () => messageExamples[getRandomInt(messageExamples.length)]
   );
 }
 
 export default function FixedBottomNavigation() {
-  const [value, setValue] = React.useState(0);
+  const [value] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState(() => refreshMessages());
 
@@ -31,11 +30,11 @@ export default function FixedBottomNavigation() {
 
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
-      <Typography sx={{ ml: 3 }} style={{ fontSize: 15, fontWeight: "bold" }}>
+      <Typography sx={{ ml: 2 }} style={{ fontSize: 20, fontWeight: "bold" }}>
         Baru-baru ini
       </Typography>
       <CssBaseline />
-      <List>
+      <List align="center">
         {messages.map(({ primary, secondary, person }, index) => (
           <ListItem button key={index + person}>
             <ListItemAvatar>
