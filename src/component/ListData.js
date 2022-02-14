@@ -1,22 +1,26 @@
 const messageExamples = [
   {
-    primary: "Damar Putra Jaya",
-    secondary: "Pembayaran iuran bulanan januari",
+    name: "Damar Putra Jaya",
+    price: "Rp20.000",
+    keterangan: "Pembayaran iuran bulan januari",
     person: require("../Image/ava2.jpg"),
   },
   {
-    primary: "Atika Putri",
-    secondary: "Pembayaran pendaftaran",
+    name: "Atika Putri",
+    price: "Rp120.000",
+    keterangan: "Pembayaran pendaftaran",
     person: require("../Image/ava1.jpg"),
   },
   {
-    primary: "Muhammad Kemal",
-    secondary: "Pembelian sabuk hijau",
+    name: "Muhammad Kemal",
+    price: "Rp65.000",
+    keterangan: "Pembelian sabuk hijau",
     person: require("../Image/ava4.jpg"),
   },
   {
-    primary: "Kiki",
-    secondary: "Tarik tunai",
+    name: "Kiki",
+    price: "Rp1.000.000",
+    keterangan: "Tarik tunai",
     person: require("../Image/ava3.jpg"),
   },
 ];

@@ -29,7 +29,7 @@ export default function BasicCard() {
       <Container>
         <Card sx={{ minWidth: 320, mt: 5 }}>
           <CardContent>
-            <Typography sx={{ fontSize: 16 }} color="text.secondary">
+            <Typography sx={{ fontSize: 18 }} color="text.secondary">
               Dompet Saya
             </Typography>
             <Typography
@@ -40,21 +40,21 @@ export default function BasicCard() {
               Rp 8.345.000
             </Typography>
             <Typography
-              sx={{ mt: 1, mb: 1.5, fontSize: 16 }}
+              sx={{ mt: 1, mb: 1.5, fontSize: 18 }}
               color="text.secondary"
             >
               Point 9841
             </Typography>
           </CardContent>
           <CardActions>
-            <Box sx={{ width: 320, m: "auto", p: "auto" }}>
+            <Box sx={{ width: 360, m: "auto", p: "auto" }}>
               <BottomNavigation
                 showLabels
                 value={value}
                 onChange={(event, newValue) => {
                   setValue(newValue);
                 }}
-                sx={{ m: "auto" }}
+                sx={{ pr: 2 }}
               >
                 <BottomNavigationAction
                   label="Top Up"
