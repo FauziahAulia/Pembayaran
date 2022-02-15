@@ -8,7 +8,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 //import dinamis
-import messageExamples from "./ListData";
+import messageExamples from "../component/ListData";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -31,22 +31,25 @@ export default function FixedBottomNavigation() {
         Baru-baru ini
       </Typography>
       <CssBaseline />
+
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
-          <ListItem button key={index + person}>
-            <ListItemAvatar>
-              <Avatar alt="Profile Picture" src={person} />
-            </ListItemAvatar>
-            <ListItemText
-              primary={name}
-              secondary={keterangan}
-              sx={{ width: 180, m: "auto", p: "auto" }}
-            />
-            <ListItemText
-              primary={price}
-              sx={{ width: 20, mt: -2, p: "auto" }}
-            />
-          </ListItem>
+          <div className="list">
+            <ListItem button key={index + person}>
+              <ListItemAvatar>
+                <Avatar alt="Profile Picture" src={person} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={name}
+                secondary={keterangan}
+                sx={{ width: 180, m: "auto", p: "auto" }}
+              />
+              <ListItemText
+                primary={price}
+                sx={{ width: 20, mt: -2, p: "auto" }}
+              />
+            </ListItem>
+          </div>
         ))}
       </List>
     </Box>

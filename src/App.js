@@ -1,7 +1,7 @@
 import * as React from "react";
-import Navbar from "./component/Navbar";
-import Card from "./component/Card";
-import List from "./component/List";
+import Navbar from "./pages/Navbar";
+import Card from "./pages/Card";
+import List from "./pages/List";
 
 function App(props) {
   return (
