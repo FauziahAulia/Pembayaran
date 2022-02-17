@@ -27,7 +27,7 @@ export default function BasicCard() {
   return (
     <div>
       <Container>
-        <Card sx={{ minWidth: 320, mt: 5 }}>
+        <Card variant="fullWidth" sx={{ minWidth: 320, mt: 5 }}>
           <CardContent>
             <Typography sx={{ fontSize: 18 }} color="text.secondary">
               Dompet Saya
