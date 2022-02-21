@@ -12,7 +12,6 @@ export default function Navbar() {
   return (
     <div>
       <AppBar
-        elevation="none"
         position="fixed"
         sx={{ xs: 3, bgcolor: "#249EA0", width: "100%" }}
       >

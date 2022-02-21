@@ -3,7 +3,7 @@
   border: 0 solid whitesmoke;
 }
 .list:hover {
+  color: white;
   background: #f78104;
   transition: 0.5s;
-  opacity: 0.8;
 }
