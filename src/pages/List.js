@@ -28,28 +28,26 @@ export default function FixedBottomNavigation() {
   return (
     <Box sx={{ pb: 7 }} ref={ref}>
       <Typography sx={{ ml: 2 }} style={{ fontSize: 20, fontWeight: "bold" }}>
-        Baru-baru ini
+        Transaksi terbaru
       </Typography>
       <CssBaseline />
 
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
-          <div className="list">
-            <ListItem button key={index + person}>
-              <ListItemAvatar>
-                <Avatar alt="Profile Picture" src={person} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={name}
-                secondary={keterangan}
-                sx={{ width: 180, m: "auto", p: "auto" }}
-              />
-              <ListItemText
-                primary={price}
-                sx={{ width: 20, mt: -2, p: "auto" }}
-              />
-            </ListItem>
-          </div>
+          <ListItem button key={index + person}>
+            <ListItemAvatar>
+              <Avatar alt="Profile Picture" src={person} />
+            </ListItemAvatar>
+            <ListItemText
+              primary={name}
+              secondary={keterangan}
+              sx={{ width: 180, m: "auto", p: "auto" }}
+            />
+            <ListItemText
+              primary={price}
+              sx={{ width: 70, mt: -2, textAlign: "right" }}
+            />
+          </ListItem>
         ))}
       </List>
     </Box>

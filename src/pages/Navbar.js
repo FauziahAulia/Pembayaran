@@ -23,7 +23,7 @@ export default function Navbar() {
               sx={{ ml: 1 }}
               style={{ fontSize: 20 }}
             >
-              <b>Pembayaran</b>
+              Pembayaran
             </Typography>
           </IconButton>
         </Box>

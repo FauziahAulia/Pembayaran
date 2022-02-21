@@ -1,9 +1,0 @@
-.list {
-  background: white;
-  border: 0 solid whitesmoke;
-}
-.list:hover {
-  color: white;
-  background: #f78104;
-  transition: 0.5s;
-}
