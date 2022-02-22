@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, IconButton, AppBar } from "@mui/material";
 // import icon
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -17,7 +17,7 @@ export default function Navbar() {
       >
         <Box sx={{ flexGrow: 1, width: "100%", ml: 1 }}>
           <IconButton sx={{ color: "#fff" }}>
-            <ArrowBackIosNewIcon style={{ fontSize: 20 }} />
+            <ArrowBackIcon style={{ fontSize: 20 }} />
             <Typography
               className="typography"
               sx={{ ml: 1 }}
