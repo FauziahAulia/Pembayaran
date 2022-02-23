@@ -25,13 +25,20 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import BrowserUpdatedIcon from "@mui/icons-material/BrowserUpdated";
 import HistoryIcon from "@mui/icons-material/History";
 import MonetizationOnTwoToneIcon from "@mui/icons-material/MonetizationOnTwoTone";
+// import navbar
+import Navbar from "../component/Navbar";
+// import list
+import List from "./List";
+// Import React router
+import { Link } from "react-router-dom";
 
 export default function BasicCard() {
   const [value, setValue] = React.useState(0);
   return (
     <div>
       <Container>
-        <Card sx={{ minWidth: 320, mt: 5 }}>
+        <Navbar>Pembayaran</Navbar>
+        <Card sx={{ minWidth: 320, mt: 8 }}>
           <CardContent>
             <Typography sx={{ fontSize: 18 }} color="text.secondary">
               Dompet Saya
@@ -71,7 +78,12 @@ export default function BasicCard() {
                 <BottomNavigationAction
                   label="Transfer"
                   icon={
-                    <DriveFolderUploadIcon color="info" sx={{ fontSize: 32 }} />
+                    <Link to="/transfer">
+                      <DriveFolderUploadIcon
+                        color="info"
+                        sx={{ fontSize: 32 }}
+                      />
+                    </Link>
                   }
                 />
                 <BottomNavigationAction
@@ -80,14 +92,20 @@ export default function BasicCard() {
                     <BrowserUpdatedIcon color="info" sx={{ fontSize: 32 }} />
                   }
                 />
+
                 <BottomNavigationAction
                   label="Riwayat"
-                  icon={<HistoryIcon color="info" sx={{ fontSize: 32 }} />}
+                  icon={
+                    <Link to="/riwayat">
+                      <HistoryIcon color="info" sx={{ fontSize: 32 }} />
+                    </Link>
+                  }
                 />
               </BottomNavigation>
             </Box>
           </CardActions>
         </Card>
+        <List />
       </Container>
     </div>
   );

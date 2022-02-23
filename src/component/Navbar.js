@@ -8,7 +8,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <div>
       <AppBar
@@ -18,12 +18,8 @@ export default function Navbar() {
         <Box sx={{ flexGrow: 1, width: "100%", ml: 1 }}>
           <IconButton sx={{ color: "#fff" }}>
             <ArrowBackIcon style={{ fontSize: 20 }} />
-            <Typography
-              className="typography"
-              sx={{ ml: 1 }}
-              style={{ fontSize: 20 }}
-            >
-              Pembayaran
+            <Typography sx={{ ml: 1 }} style={{ fontSize: 18 }}>
+              {props.children}
             </Typography>
           </IconButton>
         </Box>

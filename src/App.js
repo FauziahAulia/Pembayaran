@@ -1,17 +1,21 @@
 import * as React from "react";
-import Navbar from "./pages/Navbar";
 import Card from "./pages/Card";
-import List from "./pages/List";
+import Riwayat from "./pages/Riwayat";
+import Transfer from "./pages/Transfer";
+// react router
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App(props) {
   return (
-    <div className="App">
-      <Navbar />
-      <br />
-      <Card />
-      <br />
-      <List />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Card} />
+          <Route path="/riwayat" component={Riwayat} />
+          <Route path="/transfer" component={Transfer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

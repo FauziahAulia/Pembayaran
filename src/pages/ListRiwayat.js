@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -9,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 // import Card from "@mui/material/Card";
 //import dinamis
-import messageExamples from "../component/ListData";
+import RiwayatData from "../component/RiwayatData";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -23,24 +22,17 @@ export default function FixedBottomNavigation() {
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
-    setMessages(messageExamples);
+    setMessages(RiwayatData);
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ pb: 7 }} ref={ref}>
-      <Typography
-        sx={{ mt: 2, ml: 0 }}
-        style={{ fontSize: 20, fontWeight: "bold" }}
-      >
-        Transaksi terbaru
-      </Typography>
-
+    <Box sx={{ width: 380, mt: -3, pb: 7, p: 0 }} ref={ref}>
       <CssBaseline />
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
           <ListItem button key={index + person}>
-            <ListItemAvatar sx={{ ml: -2 }}>
+            <ListItemAvatar sx={{ ml: -5 }}>
               <Avatar alt="Profile Picture" src={person} />
             </ListItemAvatar>
             <ListItemText
