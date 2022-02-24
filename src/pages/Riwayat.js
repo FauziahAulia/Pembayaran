@@ -9,8 +9,9 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 // import navbar
 import Navbar from "../component/Navbar";
-// import ListRiwayat
-import ListRiwayat from "./ListRiwayat";
+// import List
+import IuranData from "../component/IuranData";
+import PendaftaranData from "../component/PendaftaranData";
 // Import React router
 import { Link } from "react-router-dom";
 
@@ -65,7 +66,7 @@ export default function Riwayat() {
               value={value}
               onChange={handleChange}
               aria-label="basic tabs example"
-              variant="fullWidth"
+              variant="scrollable"
             >
               <Tab label="Iuran" {...a11yProps(0)} />
               <Tab label="Pendaftaran" {...a11yProps(1)} />
@@ -75,9 +76,11 @@ export default function Riwayat() {
           </Box>
           {/* Tabs Iuran */}
           <TabPanel value={value} index={0}>
-            <ListRiwayat />
+            <IuranData />
           </TabPanel>
-          <TabPanel value={value} index={1}></TabPanel>
+          <TabPanel value={value} index={1}>
+            <PendaftaranData />
+          </TabPanel>
           <TabPanel value={value} index={2}></TabPanel>
           <TabPanel value={value} index={3}></TabPanel>
         </Box>

@@ -28,7 +28,7 @@ import MonetizationOnTwoToneIcon from "@mui/icons-material/MonetizationOnTwoTone
 // import navbar
 import Navbar from "../component/Navbar";
 // import list
-import List from "./List";
+import ListData from "../component/ListData";
 // Import React router
 import { Link } from "react-router-dom";
 
@@ -105,7 +105,7 @@ export default function BasicCard() {
             </Box>
           </CardActions>
         </Card>
-        <List />
+        <ListData />
       </Container>
     </div>
   );

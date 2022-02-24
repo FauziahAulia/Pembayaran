@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 import MobileScreenShareIcon from "@mui/icons-material/MobileScreenShare";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+// import data
+import TransaksiData from "../component/TransaksiData";
 
 export default function Transfer() {
   return (
@@ -81,6 +83,7 @@ export default function Transfer() {
         <Typography sx={{ mt: 3, fontSize: 18, fontWeight: "bold" }}>
           Transaksi Terakhir
         </Typography>
+        <TransaksiData />
       </Container>
     </div>
   );

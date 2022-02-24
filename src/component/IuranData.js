@@ -6,9 +6,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
-// import Card from "@mui/material/Card";
-//import dinamis
-import RiwayatData from "../component/RiwayatData";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -22,11 +19,11 @@ export default function FixedBottomNavigation() {
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
-    setMessages(RiwayatData);
+    setMessages(IuranData);
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ width: 380, mt: -3, pb: 7, p: 0 }} ref={ref}>
+    <Box sx={{ width: 390, mt: -3, pb: 7, p: 0 }} ref={ref}>
       <CssBaseline />
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
@@ -51,3 +48,12 @@ export default function FixedBottomNavigation() {
     </Box>
   );
 }
+
+const IuranData = [
+  {
+    name: "Damar Putra Jaya",
+    price: "Rp20.000",
+    keterangan: "Pembayaran iuran bulan januari",
+    person: require("../assets/Image/ava2.jpg"),
+  },
+];
