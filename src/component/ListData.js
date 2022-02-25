@@ -9,6 +9,7 @@ import {
   ListItemText,
   Avatar,
   Skeleton,
+  Card,
 } from "@mui/material";
 
 // import roboto font
@@ -48,20 +49,34 @@ export default function FixedBottomNavigation() {
 
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
-          <ListItem button key={index + person}>
-            <ListItemAvatar sx={{ ml: -2 }}>
-              <Avatar alt="Profile Picture" src={person} />
-            </ListItemAvatar>
-            <ListItemText
-              primary={name}
-              secondary={keterangan}
-              sx={{ width: 190, m: "auto", p: "auto" }}
-            />
-            <ListItemText
-              primary={price}
-              sx={{ width: 70, mt: -2, textAlign: "right" }}
-            />
-          </ListItem>
+          <Card
+            elevation={2}
+            sx={{ width: 400, height: 62, mb: 2, mt: 0 }}
+            style={{
+              backgroundColor: "#fff",
+              //border radius
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem button key={index + person}>
+              <ListItemAvatar sx={{ ml: -1 }}>
+                <Avatar alt="Profile Picture" src={person} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={name}
+                secondary={keterangan}
+                sx={{ width: 190, m: "auto", p: "auto" }}
+              />
+              <ListItemText
+                primary={price}
+                sx={{ width: 70, mt: -2, textAlign: "right" }}
+              />
+            </ListItem>
+          </Card>
         ))}
       </List>
     </Box>
