@@ -38,7 +38,7 @@ export default function BasicCard() {
     <div>
       <Container>
         <Navbar>Pembayaran</Navbar>
-        <Card sx={{ minWidth: 320, mt: 8 }}>
+        <Card sx={{ minWidth: 320, mt: 8, border: 0 }}>
           <CardContent>
             <Typography sx={{ fontSize: 18 }} color="text.secondary">
               Dompet Saya
@@ -62,46 +62,60 @@ export default function BasicCard() {
             </ListItem>
           </CardContent>
           <CardActions>
-            <Box sx={{ width: 360, m: "auto", p: "auto" }}>
-              <BottomNavigation
-                showLabels
-                value={value}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
+            <Box sx={{ width: 360, height: 80, m: "auto", mt: -4, p: "auto" }}>
+              <Card
+                sx={{ border: 1, height: 80, color: "#249EA0" }}
+                style={{
+                  //border radius
+                  borderBottomLeftRadius: 10,
+                  borderBottomRightRadius: 10,
+                  borderTopRightRadius: 10,
+                  borderTopLeftRadius: 10,
+                  overflow: "hidden",
                 }}
-                sx={{ pr: 2 }}
               >
-                <BottomNavigationAction
-                  label="Top Up"
-                  icon={<ControlPointIcon color="info" sx={{ fontSize: 32 }} />}
-                />
-                <BottomNavigationAction
-                  label="Transfer"
-                  icon={
-                    <Link to="/transfer">
-                      <DriveFolderUploadIcon
-                        color="info"
-                        sx={{ fontSize: 32 }}
-                      />
-                    </Link>
-                  }
-                />
-                <BottomNavigationAction
-                  label="Tarik Tunai"
-                  icon={
-                    <BrowserUpdatedIcon color="info" sx={{ fontSize: 32 }} />
-                  }
-                />
+                <BottomNavigation
+                  showLabels
+                  value={value}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                  sx={{ pr: 2, mt: 1 }}
+                >
+                  <BottomNavigationAction
+                    label="Top Up"
+                    icon={
+                      <ControlPointIcon color="info" sx={{ fontSize: 32 }} />
+                    }
+                  />
+                  <BottomNavigationAction
+                    label="Transfer"
+                    icon={
+                      <Link to="/transfer">
+                        <DriveFolderUploadIcon
+                          color="info"
+                          sx={{ fontSize: 32 }}
+                        />
+                      </Link>
+                    }
+                  />
+                  <BottomNavigationAction
+                    label="Tarik Tunai"
+                    icon={
+                      <BrowserUpdatedIcon color="info" sx={{ fontSize: 32 }} />
+                    }
+                  />
 
-                <BottomNavigationAction
-                  label="Riwayat"
-                  icon={
-                    <Link to="/riwayat">
-                      <HistoryIcon color="info" sx={{ fontSize: 32 }} />
-                    </Link>
-                  }
-                />
-              </BottomNavigation>
+                  <BottomNavigationAction
+                    label="Riwayat"
+                    icon={
+                      <Link to="/riwayat">
+                        <HistoryIcon color="info" sx={{ fontSize: 32 }} />
+                      </Link>
+                    }
+                  />
+                </BottomNavigation>
+              </Card>
             </Box>
           </CardActions>
         </Card>

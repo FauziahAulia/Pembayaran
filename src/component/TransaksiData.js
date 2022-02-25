@@ -1,11 +1,7 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import Avatar from "@mui/material/Avatar";
+import { Box, CssBaseline, List, ListItem, ListItemText } from "@mui/material";
+// import styled
+import { styled } from "@mui/material/styles";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -16,6 +12,13 @@ export default function FixedBottomNavigation() {
   const [value] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState([]);
+
+  const Img = styled("img")({
+    margin: "auto",
+    display: "block",
+    maxWidth: "100%",
+    maxHeight: "100%",
+  });
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
@@ -29,17 +32,31 @@ export default function FixedBottomNavigation() {
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
           <ListItem button key={index + person}>
-            <ListItemAvatar sx={{ ml: -2 }}>
-              <Avatar alt="Profile Picture" src={person} />
-            </ListItemAvatar>
+            <ListItemText
+              sx={{ width: 10, height: 35, ml: -2 }}
+              style={{
+                //border radius img
+                borderBottomLeftRadius: 10,
+                borderBottomRightRadius: 10,
+                borderTopRightRadius: 10,
+                borderTopLeftRadius: 10,
+                overflow: "hidden",
+              }}
+            >
+              <Img
+                alt="Profile Picture"
+                src={person}
+                sx={{ width: 32, height: 32 }}
+              />
+            </ListItemText>
             <ListItemText
               primary={name}
               secondary={keterangan}
-              sx={{ width: 190, m: "auto", p: "auto" }}
+              sx={{ width: 190, ml: 2, p: "auto" }}
             />
             <ListItemText
               primary={price}
-              sx={{ width: 70, mt: -2, textAlign: "right" }}
+              sx={{ width: 70, mt: 0, textAlign: "right" }}
             />
           </ListItem>
         ))}
@@ -51,51 +68,27 @@ export default function FixedBottomNavigation() {
 
 const TransaksiData = [
   {
-    name: "Damar Putra Jaya",
-    price: "Rp20.000",
-    keterangan: "Pembayaran iuran bulan januari",
-    person: require("../assets/Image/ava2.jpg"),
+    name: "Send Money",
+    price: "-Rp20.000",
+    keterangan: "01 Maret 2022 · 8.03 AM",
+    person: require("../assets/Image/wallet.png"),
   },
   {
-    name: "Atika Putri",
-    price: "Rp120.000",
-    keterangan: "Pembayaran pendaftaran",
-    person: require("../assets/Image/ava1.jpg"),
+    name: "Send Money",
+    price: "-Rp83.000",
+    keterangan: "27 Februari 2022 · 9.23 AM",
+    person: require("../assets/Image/wallet.png"),
   },
   {
-    name: "Muhammad Kemal",
-    price: "Rp65.000",
-    keterangan: "Pembelian sabuk hijau",
-    person: require("../assets/Image/ava4.jpg"),
+    name: "Top Up",
+    price: "Rp200.000",
+    keterangan: "19 Februari 2022 · 4.13 M",
+    person: require("../assets/Image/plus.png"),
   },
   {
-    name: "Kiki",
-    price: "Rp1.000.000",
-    keterangan: "Tarik tunai",
-    person: require("../assets/Image/ava3.jpg"),
-  },
-  {
-    name: "Damar Putra Jaya",
-    price: "Rp20.000",
-    keterangan: "Pembayaran iuran bulan januari",
-    person: require("../assets/Image/ava2.jpg"),
-  },
-  {
-    name: "Atika Putri",
-    price: "Rp120.000",
-    keterangan: "Pembayaran pendaftaran",
-    person: require("../assets/Image/ava1.jpg"),
-  },
-  {
-    name: "Muhammad Kemal",
-    price: "Rp65.000",
-    keterangan: "Pembelian sabuk hijau",
-    person: require("../assets/Image/ava4.jpg"),
-  },
-  {
-    name: "Kiki",
-    price: "Rp1.000.000",
-    keterangan: "Tarik tunai",
-    person: require("../assets/Image/ava3.jpg"),
+    name: "Send Money",
+    price: "-Rp60.000",
+    keterangan: "18 Februari 2022 · 8.03 AM",
+    person: require("../assets/Image/wallet.png"),
   },
 ];

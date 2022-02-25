@@ -45,33 +45,25 @@ export default function FixedBottomNavigation() {
       </Typography>
 
       <CssBaseline />
-      {loading ? (
-        <List align="center">
-          {messages.map(({ name, keterangan, price, person }, index) => (
-            <ListItem button key={index + person}>
-              <ListItemAvatar sx={{ ml: -2 }}>
-                <Avatar alt="Profile Picture" src={person} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={name}
-                secondary={keterangan}
-                sx={{ width: 190, m: "auto", p: "auto" }}
-              />
-              <ListItemText
-                primary={price}
-                sx={{ width: 70, mt: -2, textAlign: "right" }}
-              />
-            </ListItem>
-          ))}
-        </List>
-      ) : (
-        <Skeleton
-          animation="wave"
-          width={410}
-          height={40}
-          sx={{ ml: 1, mt: 1 }}
-        />
-      )}
+
+      <List align="center">
+        {messages.map(({ name, keterangan, price, person }, index) => (
+          <ListItem button key={index + person}>
+            <ListItemAvatar sx={{ ml: -2 }}>
+              <Avatar alt="Profile Picture" src={person} />
+            </ListItemAvatar>
+            <ListItemText
+              primary={name}
+              secondary={keterangan}
+              sx={{ width: 190, m: "auto", p: "auto" }}
+            />
+            <ListItemText
+              primary={price}
+              sx={{ width: 70, mt: -2, textAlign: "right" }}
+            />
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
 }
