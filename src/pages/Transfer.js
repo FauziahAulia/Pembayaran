@@ -41,7 +41,7 @@ export default function Transfer() {
         >
           <ListItem>
             <ListItemText>
-              <MobileScreenShareIcon color="primary" sx={{ fontSize: 28 }} />
+              <MobileScreenShareIcon sx={{ fontSize: 28, color: "#249EA0" }} />
               <Typography
                 sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
               >
@@ -68,7 +68,7 @@ export default function Transfer() {
         >
           <ListItem>
             <ListItemText>
-              <AccountBalanceIcon color="primary" sx={{ fontSize: 28 }} />
+              <AccountBalanceIcon sx={{ fontSize: 28, color: "#249EA0" }} />
               <Typography
                 sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
               >
@@ -76,7 +76,9 @@ export default function Transfer() {
               </Typography>
             </ListItemText>
             <ListItemText sx={{ textAlign: "right" }}>
-              <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
+              <Link to="/bank">
+                <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
+              </Link>
             </ListItemText>
           </ListItem>
         </Card>

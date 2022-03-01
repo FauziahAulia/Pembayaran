@@ -1,11 +1,14 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import Avatar from "@mui/material/Avatar";
+import {
+  Box,
+  CssBaseline,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Avatar,
+  Card,
+} from "@mui/material";
 // import roboto font
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -28,20 +31,34 @@ export default function FixedBottomNavigation() {
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
-          <ListItem button key={index + person}>
-            <ListItemAvatar sx={{ ml: -5 }}>
-              <Avatar alt="Profile Picture" src={person} />
-            </ListItemAvatar>
-            <ListItemText
-              primary={name}
-              secondary={keterangan}
-              sx={{ width: 190, m: "auto", p: "auto" }}
-            />
-            <ListItemText
-              primary={price}
-              sx={{ width: 70, mt: -2, textAlign: "right" }}
-            />
-          </ListItem>
+          <Card
+            elevation={2}
+            sx={{ width: 400, height: 62, mb: 2, mt: 2, ml: -3 }}
+            style={{
+              backgroundColor: "#fff",
+              //border radius
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem button key={index + person}>
+              <ListItemAvatar sx={{ ml: -5 }}>
+                <Avatar alt="Profile Picture" src={person} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={name}
+                secondary={keterangan}
+                sx={{ width: 190, m: "auto", p: "auto" }}
+              />
+              <ListItemText
+                primary={price}
+                sx={{ width: 70, mt: -2, textAlign: "right" }}
+              />
+            </ListItem>
+          </Card>
         ))}
       </List>
       {/* </Card> */}

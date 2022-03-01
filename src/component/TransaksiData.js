@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Box, CssBaseline, List, ListItem, ListItemText } from "@mui/material";
+import {
+  Box,
+  CssBaseline,
+  List,
+  ListItem,
+  ListItemText,
+  Card,
+} from "@mui/material";
 // import styled
 import { styled } from "@mui/material/styles";
 // import roboto font
@@ -31,34 +38,48 @@ export default function FixedBottomNavigation() {
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
-          <ListItem button key={index + person}>
-            <ListItemText
-              sx={{ width: 10, height: 35, ml: -2 }}
-              style={{
-                //border radius img
-                borderBottomLeftRadius: 10,
-                borderBottomRightRadius: 10,
-                borderTopRightRadius: 10,
-                borderTopLeftRadius: 10,
-                overflow: "hidden",
-              }}
-            >
-              <Img
-                alt="Profile Picture"
-                src={person}
-                sx={{ width: 32, height: 32 }}
+          <Card
+            elevation={2}
+            sx={{ width: 400, height: 62, mb: 2, mt: 2 }}
+            style={{
+              backgroundColor: "#fff",
+              //border radius
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem button key={index + person}>
+              <ListItemText
+                sx={{ width: 10, height: 35, ml: 0, mb: 3 }}
+                style={{
+                  //border radius
+                  borderBottomLeftRadius: 10,
+                  borderBottomRightRadius: 10,
+                  borderTopRightRadius: 10,
+                  borderTopLeftRadius: 10,
+                  overflow: "hidden",
+                }}
+              >
+                <Img
+                  alt="Profile Picture"
+                  src={person}
+                  sx={{ width: 32, height: 32 }}
+                />
+              </ListItemText>
+              <ListItemText
+                primary={name}
+                secondary={keterangan}
+                sx={{ width: 190, ml: 2, mb: 3, p: "auto" }}
               />
-            </ListItemText>
-            <ListItemText
-              primary={name}
-              secondary={keterangan}
-              sx={{ width: 190, ml: 2, p: "auto" }}
-            />
-            <ListItemText
-              primary={price}
-              sx={{ width: 70, mt: 0, textAlign: "right" }}
-            />
-          </ListItem>
+              <ListItemText
+                primary={price}
+                sx={{ width: 70, mt: -3, textAlign: "right" }}
+              />
+            </ListItem>
+          </Card>
         ))}
       </List>
       {/* </Card> */}

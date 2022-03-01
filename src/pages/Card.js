@@ -85,7 +85,11 @@ export default function BasicCard() {
                   <BottomNavigationAction
                     label="Top Up"
                     icon={
-                      <ControlPointIcon color="info" sx={{ fontSize: 32 }} />
+                      <Link to="/topup">
+                        <ControlPointIcon
+                          sx={{ fontSize: 32, color: "#249EA0" }}
+                        />
+                      </Link>
                     }
                   />
                   <BottomNavigationAction
@@ -93,8 +97,7 @@ export default function BasicCard() {
                     icon={
                       <Link to="/transfer">
                         <DriveFolderUploadIcon
-                          color="info"
-                          sx={{ fontSize: 32 }}
+                          sx={{ fontSize: 32, color: "#249EA0" }}
                         />
                       </Link>
                     }
@@ -102,7 +105,9 @@ export default function BasicCard() {
                   <BottomNavigationAction
                     label="Tarik Tunai"
                     icon={
-                      <BrowserUpdatedIcon color="info" sx={{ fontSize: 32 }} />
+                      <BrowserUpdatedIcon
+                        sx={{ fontSize: 32, color: "#249EA0" }}
+                      />
                     }
                   />
 
@@ -110,7 +115,7 @@ export default function BasicCard() {
                     label="Riwayat"
                     icon={
                       <Link to="/riwayat">
-                        <HistoryIcon color="info" sx={{ fontSize: 32 }} />
+                        <HistoryIcon sx={{ fontSize: 32, color: "#249EA0" }} />
                       </Link>
                     }
                   />
