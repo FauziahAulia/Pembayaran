@@ -45,7 +45,7 @@ export default function FixedBottomNavigation() {
             }}
           >
             <ListItem button key={index + person}>
-              <ListItemAvatar sx={{ ml: -5 }}>
+              <ListItemAvatar sx={{ ml: -1 }}>
                 <Avatar alt="Profile Picture" src={person} />
               </ListItemAvatar>
               <ListItemText

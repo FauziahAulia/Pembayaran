@@ -55,33 +55,33 @@ export default function Transfer() {
         </Card>
 
         {/* Card 2 */}
-        <Card
-          sx={{ minWidth: 380, height: 50, mt: 2 }}
-          style={{
-            //border radius style
-            borderBottomLeftRadius: 10,
-            borderBottomRightRadius: 10,
-            borderTopRightRadius: 10,
-            borderTopLeftRadius: 10,
-            overflow: "hidden",
-          }}
-        >
-          <ListItem>
-            <ListItemText>
-              <AccountBalanceIcon sx={{ fontSize: 28, color: "#249EA0" }} />
-              <Typography
-                sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
-              >
-                Ke Rekening Bank
-              </Typography>
-            </ListItemText>
-            <ListItemText sx={{ textAlign: "right" }}>
-              <Link to="/bank">
+        <Link to="/bank" style={{ textDecoration: "none" }}>
+          <Card
+            sx={{ minWidth: 380, height: 50, mt: 2 }}
+            style={{
+              //border radius style
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem>
+              <ListItemText>
+                <AccountBalanceIcon sx={{ fontSize: 28, color: "#249EA0" }} />
+                <Typography
+                  sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
+                >
+                  Ke Rekening Bank
+                </Typography>
+              </ListItemText>
+              <ListItemText sx={{ textAlign: "right" }}>
                 <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
-              </Link>
-            </ListItemText>
-          </ListItem>
-        </Card>
+              </ListItemText>
+            </ListItem>
+          </Card>
+        </Link>
         <Typography sx={{ mt: 3, fontSize: 18, fontWeight: "bold" }}>
           Transaksi Terakhir
         </Typography>
