@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -8,7 +8,6 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
-  Skeleton,
   Card,
 } from "@mui/material";
 
@@ -19,21 +18,13 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
 export default function FixedBottomNavigation() {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(true);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
   const [value] = React.useState(0);
   const ref = React.useRef(null);
   const [messages, setMessages] = React.useState([]);
 
   React.useEffect(() => {
     ref.current.ownerDocument.body.scrollTop = 0;
-    setMessages(messageExamples);
+    setMessages(ListData);
   }, [value, setMessages]);
 
   return (
@@ -83,7 +74,7 @@ export default function FixedBottomNavigation() {
   );
 }
 
-const messageExamples = [
+const ListData = [
   {
     name: "Damar Putra Jaya",
     price: "Rp20.000",

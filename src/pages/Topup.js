@@ -63,31 +63,35 @@ export default function Topup() {
         </Typography>
 
         {/* Card 1 */}
-        <Card
-          sx={{ minWidth: 380, height: 50, mt: 8 }}
-          style={{
-            //border radius style
-            borderBottomLeftRadius: 10,
-            borderBottomRightRadius: 10,
-            borderTopRightRadius: 10,
-            borderTopLeftRadius: 10,
-            overflow: "hidden",
-          }}
-        >
-          <ListItem>
-            <ListItemText>
-              <CreditCardRoundedIcon sx={{ fontSize: 28, color: "#249EA0" }} />
-              <Typography
-                sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
-              >
-                Kartu Debit
-              </Typography>
-            </ListItemText>
-            <ListItemText sx={{ textAlign: "right" }}>
-              <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
-            </ListItemText>
-          </ListItem>
-        </Card>
+        <Link to="/debit" style={{ textDecoration: "none" }}>
+          <Card
+            sx={{ minWidth: 380, height: 50, mt: 8 }}
+            style={{
+              //border radius style
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem>
+              <ListItemText>
+                <CreditCardRoundedIcon
+                  sx={{ fontSize: 28, color: "#249EA0" }}
+                />
+                <Typography
+                  sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
+                >
+                  Kartu Debit
+                </Typography>
+              </ListItemText>
+              <ListItemText sx={{ textAlign: "right" }}>
+                <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
+              </ListItemText>
+            </ListItem>
+          </Card>
+        </Link>
 
         {/* Card 2 */}
         <Link to="/atm" style={{ textDecoration: "none" }}>
@@ -119,33 +123,35 @@ export default function Topup() {
         </Link>
 
         {/* Card 3 */}
-        <Card
-          sx={{ minWidth: 380, height: 50, mt: 2 }}
-          style={{
-            //border radius style
-            borderBottomLeftRadius: 10,
-            borderBottomRightRadius: 10,
-            borderTopRightRadius: 10,
-            borderTopLeftRadius: 10,
-            overflow: "hidden",
-          }}
-        >
-          <ListItem>
-            <ListItemText>
-              <PhoneAndroidRoundedIcon
-                sx={{ fontSize: 28, color: "#249EA0" }}
-              />
-              <Typography
-                sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
-              >
-                Internet / Mobile Banking
-              </Typography>
-            </ListItemText>
-            <ListItemText sx={{ textAlign: "right" }}>
-              <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
-            </ListItemText>
-          </ListItem>
-        </Card>
+        <Link to="/mbanking" style={{ textDecoration: "none" }}>
+          <Card
+            sx={{ minWidth: 380, height: 50, mt: 2 }}
+            style={{
+              //border radius style
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              borderTopRightRadius: 10,
+              borderTopLeftRadius: 10,
+              overflow: "hidden",
+            }}
+          >
+            <ListItem>
+              <ListItemText>
+                <PhoneAndroidRoundedIcon
+                  sx={{ fontSize: 28, color: "#249EA0" }}
+                />
+                <Typography
+                  sx={{ ml: 5, mt: -4, fontSize: 18, fontWeight: "bold" }}
+                >
+                  Internet / Mobile Banking
+                </Typography>
+              </ListItemText>
+              <ListItemText sx={{ textAlign: "right" }}>
+                <ArrowForwardIosIcon sx={{ textAlign: "right" }} />
+              </ListItemText>
+            </ListItem>
+          </Card>
+        </Link>
 
         {/* Button Lanjutkan */}
         <Box sx={{ mt: 15 }}>

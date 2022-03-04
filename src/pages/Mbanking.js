@@ -9,14 +9,14 @@ import {
   ListItemText,
   Card,
 } from "@mui/material";
-import { Data } from "../component/AtmData";
+import { Data } from "../component/MbankingData";
 import Navbar from "../component/Navbar";
 // Import React router
 import { Link } from "react-router-dom";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 
-const Bank = () => {
+const Mbangking = () => {
   const [clicked, setClicked] = useState(false);
 
   const toggle = (index) => {
@@ -31,7 +31,7 @@ const Bank = () => {
   return (
     <Container sx={{ mt: 7 }}>
       <Link to="/topup">
-        <Navbar>Top Up - ATM</Navbar>
+        <Navbar>Top Up - Mobile Banking</Navbar>
       </Link>
 
       {Data.map((item, index) => {
@@ -107,4 +107,4 @@ const Bank = () => {
   );
 };
 
-export default Bank;
+export default Mbangking;

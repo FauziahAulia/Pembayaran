@@ -48,7 +48,7 @@ export default function Bank() {
           </AccordionSummary>
           <Divider
             variant="fullWidth"
-            sx={{ width: 381, ml: 0, mt: -2, mb: 2 }}
+            sx={{ width: 383, ml: 0, mt: -2, mb: 2 }}
           />
           <AccordionDetails>
             {/* 1.) List bank */}
@@ -57,16 +57,16 @@ export default function Bank() {
                 <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
-                      <InboxIcon />
+                      <InboxIcon sx={{ color: "#249EA0" }} />
                     </ListItemIcon>
                     <ListItemText primary="BCA" />
                   </ListItemButton>
                 </ListItem>
-                <Divider variant="fullWidth" sx={{ width: 381, ml: -2 }} />
+                <Divider variant="fullWidth" sx={{ width: 383, ml: -2 }} />
                 <ListItem disablePadding sx={{ mb: -3 }}>
                   <ListItemButton>
                     <ListItemIcon>
-                      <DraftsIcon />
+                      <DraftsIcon sx={{ color: "#249EA0" }} />
                     </ListItemIcon>
                     <ListItemText primary="Mandiri" />
                   </ListItemButton>
