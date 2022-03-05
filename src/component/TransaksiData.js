@@ -37,7 +37,7 @@ export default function FixedBottomNavigation() {
       <CssBaseline />
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
-        {messages.map(({ name, keterangan, price, person }, index) => (
+        {messages.map(({ name, keterangan, topup, send, person }, index) => (
           <Card
             elevation={2}
             sx={{ width: 400, height: 62, mb: 2, mt: 2 }}
@@ -75,8 +75,14 @@ export default function FixedBottomNavigation() {
                 sx={{ width: 190, ml: 2, mb: 3, p: "auto" }}
               />
               <ListItemText
-                primary={price}
-                sx={{ width: 70, mt: -3, textAlign: "right" }}
+                primary={topup}
+                sx={{ mt: -3, textAlign: "right", mr: -3 }}
+                style={{ color: "green" }}
+              />
+              <ListItemText
+                primary={send}
+                sx={{ mt: -3, textAlign: "right" }}
+                style={{ color: "red" }}
               />
             </ListItem>
           </Card>
@@ -90,25 +96,25 @@ export default function FixedBottomNavigation() {
 const TransaksiData = [
   {
     name: "Send Money",
-    price: "-Rp20.000",
+    send: "-Rp20.000",
     keterangan: "01 Maret 2022 · 8.03 AM",
     person: require("../assets/Image/wallet.png"),
   },
   {
     name: "Send Money",
-    price: "-Rp83.000",
+    send: "-Rp83.000",
     keterangan: "27 Februari 2022 · 9.23 AM",
     person: require("../assets/Image/wallet.png"),
   },
   {
     name: "Top Up",
-    price: "Rp200.000",
+    topup: "Rp200.000",
     keterangan: "19 Februari 2022 · 4.13 M",
     person: require("../assets/Image/plus.png"),
   },
   {
     name: "Send Money",
-    price: "-Rp60.000",
+    send: "-Rp60.000",
     keterangan: "18 Februari 2022 · 8.03 AM",
     person: require("../assets/Image/wallet.png"),
   },

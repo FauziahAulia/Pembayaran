@@ -1,4 +1,9 @@
 import React from "react";
+import { useTheme } from "@mui/material/styles";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 //import material
 import {
   Container,
@@ -6,14 +11,8 @@ import {
   Divider,
   Box,
   Button,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
   ListItemText,
   TextField,
-  MenuItem,
-  Checkbox,
-  InputLabel,
 } from "@mui/material";
 // import roboto font
 import "@fontsource/roboto/300.css";
@@ -24,10 +23,6 @@ import "@fontsource/roboto/700.css";
 import Navbar from "../component/Navbar";
 // Import React router
 import { Link } from "react-router-dom";
-// import icon
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import FormControl from "@mui/material/FormControl";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -35,13 +30,12 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+      width: 390,
     },
   },
 };
 
 const names = [
-  "Rp 10.000",
   "Rp 20.000",
   "Rp 50.000",
   "Rp 100.000",
@@ -49,7 +43,17 @@ const names = [
   "Rp 200.000",
 ];
 
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
 export default function Debit() {
+  const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -61,6 +65,7 @@ export default function Debit() {
       typeof value === "string" ? value.split(",") : value
     );
   };
+
   return (
     <div>
       <Container sx={{ width: 430 }}>
@@ -91,47 +96,32 @@ export default function Debit() {
         </Box>
 
         {/* 1.) pilih nominal */}
-        <FormControl sx={{ m: 1, ml: 0, width: 390 }}>
-          <Accordion
-            sx={{ mt: 2 }}
-            style={{
-              //border radius
-              borderBottomLeftRadius: 10,
-              borderBottomRightRadius: 10,
-              borderTopRightRadius: 10,
-              borderTopLeftRadius: 10,
-              overflow: "hidden",
-            }}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography style={{ fontWeight: "bold" }}>
-                Pilih Nominal
-              </Typography>
-            </AccordionSummary>
-            <Divider
-              variant="fullWidth"
-              sx={{ width: 398, ml: 0, mt: 0, mb: 2 }}
-            />
+        <FormControl sx={{ width: 390, mt: 3 }}>
+          <Select
+            displayEmpty
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            renderValue={(selected) => {
+              if (selected.length === 0) {
+                return <>Pilih Nominal</>;
+              }
 
-            <AccordionDetails
-              expandIcon={<ExpandMoreIcon />}
-              labelId="demo-multiple-checkbox-label"
-              id="demo-multiple-checkbox"
-              multiple
-              value={personName}
-              onChange={handleChange}
-              input={<OutlinedInput />}
-              renderValue={(selected) => selected.join(", ")}
-              MenuProps={MenuProps}
-            >
-              {names.map((name) => (
-                <MenuItem key={name} value={name}>
-                  <Checkbox checked={personName.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
-                </MenuItem>
-              ))}
-            </AccordionDetails>
-          </Accordion>
+              return selected.join(", ");
+            }}
+            MenuProps={MenuProps}
+            inputProps={{ "aria-label": "Without label" }}
+          >
+            {names.map((name) => (
+              <MenuItem
+                key={name}
+                value={name}
+                style={getStyles(name, personName, theme)}
+              >
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
         </FormControl>
 
         {/* info */}
@@ -168,7 +158,7 @@ export default function Debit() {
         />
 
         {/* Button Lanjutkan */}
-        <Box sx={{ mt: 15 }}>
+        <Box sx={{ mt: 13 }}>
           <Button
             variant="contained"
             color="warning"

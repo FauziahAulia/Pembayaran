@@ -14,7 +14,9 @@ import Navbar from "../component/Navbar";
 // Import React router
 import { Link } from "react-router-dom";
 import AddBoxIcon from "@mui/icons-material/AddBox";
+// import icon
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
+import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 
 const Mbangking = () => {
   const [clicked, setClicked] = useState(false);
@@ -93,7 +95,67 @@ const Mbangking = () => {
                   <nav aria-label="main mailbox folders">
                     <List sx={{ mt: -4 }}>
                       <ListItem disablePadding>
-                        <ListItemText>{item.procedures}</ListItemText>
+                        <ListItemText>
+                          <Card
+                            sx={{ pb: 2, mt: 2 }}
+                            style={{ backgroundColor: "white" }}
+                          >
+                            {/* instruksi */}
+                            <Typography
+                              sx={{ ml: 2, mt: 1, mb: 2 }}
+                              style={{ fontSize: 18, fontWeight: "bold" }}
+                            >
+                              Instruksi
+                            </Typography>
+                            {/* porsedur1 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures1}
+                            </Typography>
+                            {/* porsedur2 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures2}
+                            </Typography>
+                            {/* porsedur3 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures3}
+                            </Typography>
+                            {/* porsedur4 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures4}
+                            </Typography>
+                            <Typography
+                              sx={{ ml: 2, mt: 8 }}
+                              style={{ fontSize: 14 }}
+                            >
+                              Catatan :
+                            </Typography>
+                            <Typography sx={{ ml: 3 }} style={{ fontSize: 13 }}>
+                              Minimum top-up Rp 20.000
+                            </Typography>
+                            <Typography sx={{ ml: 3 }} style={{ fontSize: 13 }}>
+                              Biaya admin Rp 1000 dipotong dari minimal top up
+                            </Typography>
+                            <Typography sx={{ ml: 3 }} style={{ fontSize: 13 }}>
+                              DOMPETKU Cash
+                            </Typography>
+                          </Card>
+                        </ListItemText>
                       </ListItem>
                     </List>
                   </nav>

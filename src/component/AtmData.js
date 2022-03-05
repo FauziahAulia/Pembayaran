@@ -1,7 +1,13 @@
 export const Data = [
   {
     name: "BCA",
-    procedures: "ini isi",
+    instruksi: "Masukkan kartu ATM dan PIN BNI Anda",
+    procedures1: "Pilih Menu Lainnya",
+    procedures2: "Pilih Menu Transfer",
+    procedures3:
+      "Piih Meu Virtual Account Billing, Masukkan 8740+ 12 digit nomer ponsel Anda : 8740 08********** ",
+    procedures4: "Masukkan Nominal Top Up",
+    procedures5: "Ikuti Instruksi untuk Menyelesaikan Transaksi",
   },
   {
     name: "Mandiri",

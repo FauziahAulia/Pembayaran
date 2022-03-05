@@ -1,7 +1,11 @@
 export const Data = [
   {
     name: "m- BCA",
-    procedures: "ini isi",
+    instruksi: "Instruksi",
+    procedures1: "Instruksi",
+    procedures2: "Instruksi",
+    procedures3: "Instruksi",
+    procedures4: "Instruksi",
   },
   {
     name: "Livin`",
