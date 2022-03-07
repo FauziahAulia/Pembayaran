@@ -4,6 +4,9 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
 //import material
 import {
   Container,
@@ -65,6 +68,7 @@ export default function Debit() {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  const [value, setValue] = React.useState(null);
 
   return (
     <div>
@@ -90,7 +94,7 @@ export default function Debit() {
           <ListItemText
             sx={{ mt: 1, fontSize: 15 }}
             align="center"
-            secondary="Maks. Saldo DOMPETKU Cash RP.10.000.000 "
+            secondary="Maks. Saldo DOMPETKU Cash RP 10.000.000 "
           />
           <Divider sx={{ width: 438, ml: -3, border: 1, color: "#249EA0" }} />
         </Box>
@@ -133,7 +137,7 @@ export default function Debit() {
           <br /> sudah aktif 3D secure
         </Typography>
 
-        {/*  */}
+        {/* 1 */}
         <TextField
           type="number"
           InputLabelProps={{
@@ -142,11 +146,25 @@ export default function Debit() {
           placeholder="Nomor Kartu "
           sx={{ width: 390, mt: 2 }}
         />
-        <TextField
-          placeholder="Masa Berlaku "
-          multiline
-          sx={{ width: 390, mt: 2 }}
-        />
+
+        {/* 2 */}
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
+            value={value}
+            onChange={(newValue) => {
+              setValue(newValue);
+            }}
+            renderInput={(params) => (
+              <TextField
+                sx={{ width: 390, mt: 2 }}
+                placeholder="Masa Berlaku"
+                {...params}
+              />
+            )}
+          />
+        </LocalizationProvider>
+
+        {/* 3 */}
         <TextField
           type="number"
           InputLabelProps={{

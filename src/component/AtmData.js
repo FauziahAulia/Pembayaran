@@ -1,7 +1,7 @@
 export const Data = [
   {
     name: "BCA",
-    instruksi: "Masukkan kartu ATM dan PIN BNI Anda",
+    procedures: "Masukkan kartu ATM dan PIN BNI Anda",
     procedures1: "Pilih Menu Lainnya",
     procedures2: "Pilih Menu Transfer",
     procedures3:

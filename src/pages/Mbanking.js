@@ -113,7 +113,7 @@ const Mbangking = () => {
                               style={{ fontSize: 18 }}
                             />{" "}
                             <Typography sx={{ mt: -3.4, ml: 7 }}>
-                              {item.procedures1}
+                              {item.procedures}
                             </Typography>
                             {/* porsedur2 */}
                             <RadioButtonCheckedIcon
@@ -121,7 +121,7 @@ const Mbangking = () => {
                               style={{ fontSize: 18 }}
                             />{" "}
                             <Typography sx={{ mt: -3.4, ml: 7 }}>
-                              {item.procedures2}
+                              {item.procedures1}
                             </Typography>
                             {/* porsedur3 */}
                             <RadioButtonCheckedIcon
@@ -129,7 +129,7 @@ const Mbangking = () => {
                               style={{ fontSize: 18 }}
                             />{" "}
                             <Typography sx={{ mt: -3.4, ml: 7 }}>
-                              {item.procedures3}
+                              {item.procedures2}
                             </Typography>
                             {/* porsedur4 */}
                             <RadioButtonCheckedIcon
@@ -137,7 +137,23 @@ const Mbangking = () => {
                               style={{ fontSize: 18 }}
                             />{" "}
                             <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures3}
+                            </Typography>
+                            {/* porsedur5 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
                               {item.procedures4}
+                            </Typography>
+                            {/* porsedur6 */}
+                            <RadioButtonCheckedIcon
+                              sx={{ ml: 2, mt: -2, color: "#249EA0" }}
+                              style={{ fontSize: 18 }}
+                            />{" "}
+                            <Typography sx={{ mt: -3.4, ml: 7 }}>
+                              {item.procedures5}
                             </Typography>
                             <Typography
                               sx={{ ml: 2, mt: 8 }}

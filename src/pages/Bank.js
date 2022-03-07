@@ -89,11 +89,6 @@ export default function Bank() {
                 {name}
               </MenuItem>
             ))}
-            {/* {img.map((img) => (
-              <MenuItem key={img} value={img} style={getStyles(img)}>
-                {img}
-              </MenuItem>
-            ))} */}
           </Select>
         </FormControl>
         {/* 2.) Rekening */}
