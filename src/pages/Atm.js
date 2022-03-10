@@ -96,7 +96,12 @@ const Bank = () => {
                       <ListItem disablePadding>
                         <ListItemText>
                           <Card
-                            sx={{ pb: 2, mt: 2 }}
+                            elevation={0}
+                            sx={{
+                              pb: 2,
+                              mt: 2,
+                              boxShadow: "none",
+                            }}
                             style={{ backgroundColor: "white" }}
                           >
                             {/* instruksi */}

@@ -4,6 +4,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { styled } from "@mui/material/styles";
 //import material
 import {
   Container,
@@ -12,6 +13,9 @@ import {
   Grid,
   Box,
   Button,
+  AppBar,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 // import roboto font
 import "@fontsource/roboto/300.css";
@@ -34,7 +38,7 @@ const MenuProps = {
 };
 
 const names = ["BNI", "BCA", "Mandiri", "BRI", "BSI"];
-// const img = [""];
+const img = [require("../assets/Image/bni.png")];
 
 function getStyles(name, personName, theme) {
   return {
@@ -44,6 +48,40 @@ function getStyles(name, personName, theme) {
         : theme.typography.fontWeightMedium,
   };
 }
+
+const SaveButton = styled(Button)({
+  transition: " 1ms smooth",
+  marginTop: 0,
+  marginBottom: 20,
+  boxShadow: "none",
+  textTransform: "none",
+  fontSize: 16,
+  letterSpacing: "1px",
+  width: "95%",
+  padding: "11px 81px",
+  lineHeight: 1.5,
+  backgroundColor: "#F78104",
+  fontFamily: [
+    "Roboto",
+    "poppins",
+    '"Helvetica Neue"',
+    "Arial",
+    "sans-serif",
+  ].join(","),
+  "&:hover": {
+    backgroundColor: "#F78104",
+    padding: "11px 81px",
+    boxShadow: "none",
+  },
+  "&:active": {
+    boxShadow: "none",
+    backgroundColor: "#F78104",
+    borderColor: "#F78104",
+  },
+  "&:focus": {
+    boxShadow: "#F78104",
+  },
+});
 
 export default function Bank() {
   const theme = useTheme();
@@ -58,124 +96,228 @@ export default function Bank() {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  const Img = styled("img")({
+    margin: "auto",
+    display: "block",
+    maxWidth: "100%",
+    maxHeight: "100%",
+  });
+
+  const [bank, setBank] = React.useState("");
+  const [nomor, setNomor] = React.useState("");
+  const saldo = "Rp 8.345.000";
+  const [transfer, setTransfer] = React.useState("");
+  const [pesan, setPesan] = React.useState("");
+
+  const handleSubmit = function (event) {
+    event.preventDefault();
+    console.log(
+      `\n`,
+      `Bank: ${personName}`,
+      `\n`,
+      `Nomor: ${nomor}`,
+      `\n`,
+      `Saldo: ${saldo}`,
+      `\n`,
+      `Transfer: ${transfer}`,
+      `\n`,
+      `Pesan: ${pesan}`,
+      `\n`
+    );
+  };
+  const handleNominal = (event) => {
+    setPersonName(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <div>
       <Container>
         <Link to="/transfer">
           <Navbar>Ke Rekening Bank</Navbar>
         </Link>
-        <FormControl sx={{ width: 390, mt: 6 }}>
-          <Select
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <>Pilih Bank</>;
-              }
+        <form onSubmit={handleSubmit} autocomplete="off">
+          <FormControl sx={{ width: 390, mt: 6 }}>
+            <Select
+              displayEmpty
+              value={personName}
+              onChange={handleChange}
+              input={<OutlinedInput />}
+              renderValue={(selected) => {
+                if (selected.length === 0) {
+                  return <>Pilih Bank</>;
+                }
 
-              return selected.join(", ");
+                return selected.join(", ");
+              }}
+              MenuProps={MenuProps}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              {names.map((name) => (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  style={getStyles(name, personName, theme)}
+                >
+                  {name}
+                  {img.map((img) => (
+                    <Img
+                      alt="Profile Picture"
+                      src={img}
+                      key={img}
+                      value={img}
+                      sx={{
+                        width: 45,
+                        height: 18,
+                        mr: "auto",
+                        textAlign: "right",
+                      }}
+                    />
+                  ))}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {/* 2.) Rekening */}
+          <TextField
+            type="number"
+            placeholder="No Rekening"
+            sx={{ width: 390, mt: 2 }}
+            value={nomor}
+            onChange={(e) => setNomor(e.target.value)}
+            fullWidth
+          />
+
+          {/* 3.) Saldo */}
+          <Grid
+            item
+            xs={12}
+            sx={{ mt: 2, border: 1 }}
+            style={{
+              //border radius
+              borderBottomLeftRadius: 5,
+              borderBottomRightRadius: 5,
+              borderTopRightRadius: 5,
+              borderTopLeftRadius: 5,
+              overflow: "hidden",
             }}
-            MenuProps={MenuProps}
-            inputProps={{ "aria-label": "Without label" }}
           >
-            {names.map((name) => (
-              <MenuItem
-                key={name}
-                value={name}
-                style={getStyles(name, personName, theme)}
+            <Typography sx={{ ml: 2, mt: 1 }} style={{ color: "#249EA0" }}>
+              Saldo
+            </Typography>
+            <Typography
+              sx={{ ml: 3, mt: 0 }}
+              style={{ fontSize: 21, color: "#249EA0" }}
+            >
+              {saldo}
+            </Typography>
+          </Grid>
+
+          {/* 4.) Nominal Transfer */}
+          <Grid
+            item
+            xs={12}
+            sx={{ mt: 2, border: 1 }}
+            style={{
+              //border radius
+              borderBottomLeftRadius: 5,
+              borderBottomRightRadius: 5,
+              borderTopRightRadius: 5,
+              borderTopLeftRadius: 5,
+              overflow: "hidden",
+            }}
+          >
+            <Typography sx={{ ml: 2, mt: 1 }} style={{ color: "#249EA0" }}>
+              Nominal Transfer
+            </Typography>
+            <Typography
+              sx={{ ml: 2, mt: 0, mb: 1 }}
+              style={{ fontSize: 21, color: "#249EA0" }}
+            >
+              Rp
+              <Box
+                sx={{
+                  mt: -4,
+                  ml: 4,
+                  width: 320,
+                  maxWidth: "100%",
+                }}
               >
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {/* 2.) Rekening */}
-        <TextField
-          type="number"
-          placeholder="No Rekening"
-          sx={{ width: 390, mt: 2 }}
-        />
+                <TextField
+                  fullWidth
+                  size="small"
+                  value={transfer}
+                  onChange={(e) => setTransfer(e.target.value)}
+                />
+              </Box>
+            </Typography>
+          </Grid>
 
-        {/* 3.) Saldo */}
-        <Grid
-          item
-          xs={12}
-          sx={{ mt: 2, border: 1 }}
-          style={{
-            //border radius
-            borderBottomLeftRadius: 5,
-            borderBottomRightRadius: 5,
-            borderTopRightRadius: 5,
-            borderTopLeftRadius: 5,
-            overflow: "hidden",
-          }}
-        >
-          <Typography sx={{ ml: 2, mt: 1 }} style={{ color: "#249EA0" }}>
-            Saldo
-          </Typography>
-          <Typography
-            sx={{ ml: 3, mt: 0 }}
-            style={{ fontSize: 21, color: "#249EA0" }}
-          >
-            Rp 8.345.000
-          </Typography>
-        </Grid>
+          {/* 5.) Pesan  */}
+          <TextField
+            placeholder="Pesan (Opsional) "
+            multiline
+            rows={4}
+            sx={{ width: 390, mt: 2 }}
+            value={pesan}
+            onChange={(e) => setPesan(e.target.value)}
+            fullWidth
+          />
 
-        {/* 4.) Nominal Transfer */}
-        <Grid
-          item
-          xs={12}
-          sx={{ mt: 2, border: 1 }}
-          style={{
-            //border radius
-            borderBottomLeftRadius: 5,
-            borderBottomRightRadius: 5,
-            borderTopRightRadius: 5,
-            borderTopLeftRadius: 5,
-            overflow: "hidden",
-          }}
-        >
-          <Typography sx={{ ml: 2, mt: 1 }} style={{ color: "#249EA0" }}>
-            Nominal Transfer
-          </Typography>
-          <Typography
-            sx={{ ml: 2, mt: 0, mb: 1 }}
-            style={{ fontSize: 21, color: "#249EA0" }}
-          >
-            Rp
-            <Box
+          {/* Button Lanjutkan */}
+          <Box sx={{ mt: 8 }}>
+            <AppBar
+              position="fixed"
               sx={{
-                mt: -4,
-                ml: 4,
-                width: 320,
-                maxWidth: "100%",
+                top: "auto",
+                bottom: 0,
+                bgcolor: "transparent",
               }}
             >
-              <TextField fullWidth size="small" />
-            </Box>
-          </Typography>
-        </Grid>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  margin: "auto",
+                  textAlign: "center",
+                  width: "95%",
+                }}
+              >
+                <SaveButton
+                  input
+                  type="submit"
+                  onClick={handleClick}
+                  variant="contained"
+                  disableRipple
+                >
+                  Lanjutkan
+                </SaveButton>
+              </Box>
+            </AppBar>
 
-        {/* 5.) Pesan  */}
-        <TextField
-          placeholder="Pesan (Opsional) "
-          multiline
-          rows={4}
-          sx={{ width: 390, mt: 2 }}
-        />
-
-        {/* Button Lanjutkan */}
-        <Box sx={{ mt: 8 }}>
-          <Button
-            variant="contained"
-            color="warning"
-            sx={{ width: 390, mt: 2 }}
-          >
-            Lanjutkan
-          </Button>
-        </Box>
+            <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                sx={{ width: "100%", mb: 7 }}
+              >
+                Terkirim!
+              </Alert>
+            </Snackbar>
+          </Box>
+        </form>
       </Container>
     </div>
   );

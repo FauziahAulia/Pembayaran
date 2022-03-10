@@ -13,7 +13,7 @@ import {
   Typography,
   Divider,
   Box,
-  Button,
+  Grid,
   ListItemText,
   TextField,
 } from "@mui/material";
@@ -24,8 +24,10 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 // import navbar
 import Navbar from "../component/Navbar";
+import Button from "../component/Button";
 // Import React router
 import { Link } from "react-router-dom";
+import { useStyles } from "./Style";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -37,6 +39,26 @@ const MenuProps = {
     },
   },
 };
+// const TextFieldDate = {
+//   textFieldDate: {
+//     style: {
+//       width: "100%",
+//       fontSize: 12,
+//       height: 34.5,
+//       border: "1.5px solid",
+//       borderColor: "grey",
+//       borderRadius: 7,
+//     },
+//   },
+// };
+// const DatePicker = {
+//   datePicker: {
+//     style: {
+//       height: 1.4,
+//       backgroundColor: "#249EA0",
+//     },
+//   },
+// };
 
 const names = [
   "Rp 20.000",
@@ -46,7 +68,7 @@ const names = [
   "Rp 200.000",
 ];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, personName, theme, img) {
   return {
     fontWeight:
       personName.indexOf(name) === -1
@@ -68,7 +90,30 @@ export default function Debit() {
       typeof value === "string" ? value.split(",") : value
     );
   };
-  const [value, setValue] = React.useState(null);
+
+  const [nominal, setNominal] = React.useState("");
+  const [nomor, setNomor] = React.useState("");
+  const [tanggal, setTanggal] = React.useState("");
+  const [ccv, setCcv] = React.useState("");
+
+  const handleSubmit = function (event) {
+    event.preventDefault();
+    console.log(
+      `\n`,
+      `Nominal: ${personName}`,
+      `\n`,
+      `Nomor: ${nomor}`,
+      `\n`,
+      `Tanggal: ${tanggal}`,
+      `\n`,
+      `Ccv: ${ccv}`
+    );
+  };
+  const handleNominal = (event) => {
+    setPersonName(event.target.value);
+    console.log(event.target.value);
+  };
+  const classes = useStyles();
 
   return (
     <div>
@@ -99,92 +144,105 @@ export default function Debit() {
           <Divider sx={{ width: 438, ml: -3, border: 1, color: "#249EA0" }} />
         </Box>
 
-        {/* 1.) pilih nominal */}
-        <FormControl sx={{ width: 390, mt: 3 }}>
-          <Select
-            displayEmpty
-            value={personName}
-            onChange={handleChange}
-            input={<OutlinedInput />}
-            renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <>Pilih Nominal</>;
-              }
+        <form onSubmit={handleSubmit} autocomplete="off">
+          {/* 1.) pilih nominal */}
+          <FormControl sx={{ width: 390, mt: 3 }}>
+            <Select
+              displayEmpty
+              value={personName}
+              onChange={handleChange}
+              input={<OutlinedInput />}
+              renderValue={(selected) => {
+                if (selected.length === 0) {
+                  return <>Pilih Nominal</>;
+                }
 
-              return selected.join(", ");
-            }}
-            MenuProps={MenuProps}
-            inputProps={{ "aria-label": "Without label" }}
+                return selected.join(", ");
+              }}
+              MenuProps={MenuProps}
+              inputProps={{ "aria-label": "Without label" }}
+            >
+              {names.map((name) => (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  style={getStyles(name, personName, theme)}
+                >
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          {/* info */}
+          <Typography
+            sx={{ mt: 5 }}
+            style={{ fontSize: 18, fontWeight: "bold" }}
           >
-            {names.map((name) => (
-              <MenuItem
-                key={name}
-                value={name}
-                style={getStyles(name, personName, theme)}
-              >
-                {name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+            Informasi Kartu
+          </Typography>
+          <Typography sx={{ mt: 3 }}>
+            Saat ini kami hanya menerima kartu debit yang
+            <br /> sudah aktif 3D secure
+          </Typography>
 
-        {/* info */}
-        <Typography sx={{ mt: 5 }} style={{ fontSize: 18, fontWeight: "bold" }}>
-          Informasi Kartu
-        </Typography>
-        <Typography sx={{ mt: 3 }}>
-          Saat ini kami hanya menerima kartu debit yang
-          <br /> sudah aktif 3D secure
-        </Typography>
-
-        {/* 1 */}
-        <TextField
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          placeholder="Nomor Kartu "
-          sx={{ width: 390, mt: 2 }}
-        />
-
-        {/* 2 */}
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            value={value}
-            onChange={(newValue) => {
-              setValue(newValue);
+          {/* 1 */}
+          <TextField
+            type="number"
+            InputLabelProps={{
+              shrink: true,
             }}
-            renderInput={(params) => (
-              <TextField
-                sx={{ width: 390, mt: 2 }}
-                placeholder="Masa Berlaku"
-                {...params}
-              />
-            )}
+            placeholder="Nomor Kartu "
+            sx={{ width: 390, mt: 2 }}
+            InputProps={{ disableUnderline: true }}
+            value={nomor}
+            onChange={(e) => setNomor(e.target.value)}
+            fullWidth
           />
-        </LocalizationProvider>
 
-        {/* 3 */}
-        <TextField
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          placeholder="CCV "
-          sx={{ width: 390, mt: 2 }}
-          helperText="3 digit terakhir pada bagian belakang kartu anda"
-        />
+          {/* 2 */}
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              value={tanggal}
+              onChange={(newTanggal) => {
+                setTanggal(newTanggal);
+              }}
+              renderInput={(params) => (
+                <TextField
+                  sx={{
+                    width: 390,
+                    mt: 2,
+                  }}
+                  placeholder="Masa Berlaku"
+                  fullWidth
+                  {...params}
+                  className={classes.textFieldCalendar}
+                />
+              )}
+              className={classes.datePicker}
+            />
+          </LocalizationProvider>
 
-        {/* Button Lanjutkan */}
-        <Box sx={{ mt: 13 }}>
-          <Button
-            variant="contained"
-            color="warning"
-            sx={{ width: 400, mt: 15, m: "auto" }}
-          >
-            Top Up
-          </Button>
-        </Box>
+          {/* 3 */}
+          <TextField
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder="CCV "
+            sx={{ width: 390, mt: 2 }}
+            InputProps={{ disableUnderline: true }}
+            value={ccv}
+            onChange={(e) => setCcv(e.target.value)}
+            fullWidth
+            helperText="3 digit terakhir pada bagian belakang kartu anda"
+          />
+
+          {/* Button Lanjutkan */}
+          <Grid item xs={12} sx={{ mb: 2 }}>
+            <Button type="submit" autocomplete="off" />
+          </Grid>
+        </form>
       </Container>
     </div>
   );
