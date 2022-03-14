@@ -26,14 +26,14 @@ export default function FixedBottomNavigation() {
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ width: 390, mt: -3, pb: 7, p: 0 }} ref={ref}>
+    <Box sx={{ minWidth: 380, mt: -3, pb: 7, p: 0 }} ref={ref}>
       <CssBaseline />
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
         {messages.map(({ name, keterangan, price, person }, index) => (
           <Card
             elevation={2}
-            sx={{ width: 400, height: 62, mb: 2, mt: 2, ml: -3 }}
+            sx={{ minWidth: 400, height: 62, mb: 2, mt: 2, ml: -3 }}
             style={{
               backgroundColor: "#fff",
               //border radius

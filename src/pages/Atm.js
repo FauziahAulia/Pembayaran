@@ -30,7 +30,7 @@ const Bank = () => {
   };
 
   return (
-    <Container sx={{ mt: 7 }}>
+    <Container sx={{ minWidth: 430, mt: 7 }}>
       <Link to="/topup">
         <Navbar>Top Up - ATM</Navbar>
       </Link>

@@ -12,10 +12,10 @@ export const useStyles = makeStyles(() => ({
       borderColor: "#249EA0",
     },
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "grey",
+      borderColor: "#249EA0",
     },
     "& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#249EA0",
+      borderColor: "grey",
     },
     "& svg": {
       color: "#249EA0",

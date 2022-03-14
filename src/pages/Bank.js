@@ -36,9 +36,29 @@ const MenuProps = {
     },
   },
 };
-
-const names = ["BNI", "BCA", "Mandiri", "BRI", "BSI"];
-const img = [require("../assets/Image/bni.png")];
+const names = [
+  {
+    name: "BNI",
+    img: require("../assets/Image/bni.png"),
+  },
+  {
+    name: "BCA",
+    img: require("../assets/Image/bca.png"),
+  },
+  {
+    name: "Mandiri",
+    img: require("../assets/Image/mandiri.png"),
+  },
+  {
+    name: "BRI",
+    img: require("../assets/Image/bri2.png"),
+  },
+  {
+    name: "BSI",
+    img: require("../assets/Image/bsi2.png"),
+  },
+];
+// const names = ["BNI", require("../assets/Image/bni.png"), "BCA", "Mandiri", "BRI", "BSI"];
 
 function getStyles(name, personName, theme) {
   return {
@@ -145,12 +165,12 @@ export default function Bank() {
   };
   return (
     <div>
-      <Container>
+      <Container sx={{ minWidth: 430 }}>
         <Link to="/transfer">
           <Navbar>Ke Rekening Bank</Navbar>
         </Link>
         <form onSubmit={handleSubmit} autocomplete="off">
-          <FormControl sx={{ width: 390, mt: 6 }}>
+          <FormControl sx={{ minWidth: 400, mt: 6 }}>
             <Select
               displayEmpty
               value={personName}
@@ -166,14 +186,27 @@ export default function Bank() {
               MenuProps={MenuProps}
               inputProps={{ "aria-label": "Without label" }}
             >
-              {names.map((name) => (
+              {names.map(({ name, img }) => (
                 <MenuItem
                   key={name}
                   value={name}
                   style={getStyles(name, personName, theme)}
                 >
                   {name}
-                  {img.map((img) => (
+
+                  <Img
+                    src={img}
+                    key={img}
+                    value={img}
+                    sx={{
+                      width: "16%",
+                      height: "16%",
+                      mr: 2,
+                      textAlign: "right",
+                    }}
+                  />
+
+                  {/* {img.map((img) => (
                     <Img
                       alt="Profile Picture"
                       src={img}
@@ -186,7 +219,7 @@ export default function Bank() {
                         textAlign: "right",
                       }}
                     />
-                  ))}
+                  ))} */}
                 </MenuItem>
               ))}
             </Select>
@@ -195,7 +228,7 @@ export default function Bank() {
           <TextField
             type="number"
             placeholder="No Rekening"
-            sx={{ width: 390, mt: 2 }}
+            sx={{ minWidth: 400, mt: 2 }}
             value={nomor}
             onChange={(e) => setNomor(e.target.value)}
             fullWidth
@@ -271,7 +304,7 @@ export default function Bank() {
             placeholder="Pesan (Opsional) "
             multiline
             rows={4}
-            sx={{ width: 390, mt: 2 }}
+            sx={{ minWidth: 400, mt: 2 }}
             value={pesan}
             onChange={(e) => setPesan(e.target.value)}
             fullWidth

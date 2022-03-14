@@ -59,7 +59,7 @@ export default function Riwayat() {
       <Link to="/">
         <Navbar>Riwayat</Navbar>
       </Link>
-      <Container align="center" sx={{ width: 430, pt: 2 }}>
+      <Container align="center" sx={{ minWidth: 430, pt: 2 }}>
         <Box position="static" sx={{ bgcolor: "grey", pt: 3 }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <Tabs

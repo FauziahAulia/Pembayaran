@@ -36,9 +36,9 @@ export default function BasicCard() {
   const [value, setValue] = React.useState(0);
   return (
     <div>
-      <Container>
+      <Container sx={{ minWidth: 405 }}>
         <Navbar>Pembayaran</Navbar>
-        <Card sx={{ minWidth: 320, mt: 8, border: 0 }}>
+        <Card sx={{ minWidth: 400, mt: 8, border: 0 }}>
           <CardContent>
             <Typography sx={{ fontSize: 18 }} color="text.secondary">
               Dompet Saya
@@ -83,39 +83,49 @@ export default function BasicCard() {
                   sx={{ pr: 2, mt: 1 }}
                 >
                   <BottomNavigationAction
-                    label="Top Up"
                     icon={
-                      <Link to="/topup">
+                      <Link to="/topup" style={{ textDecoration: " none" }}>
                         <ControlPointIcon
                           sx={{ fontSize: 32, color: "#249EA0" }}
                         />
+                        <Typography sx={{ fontSize: 12, color: "#249EA0" }}>
+                          Top Up
+                        </Typography>
                       </Link>
                     }
                   />
                   <BottomNavigationAction
-                    label="Transfer"
                     icon={
-                      <Link to="/transfer">
+                      <Link to="/transfer" style={{ textDecoration: " none" }}>
                         <DriveFolderUploadIcon
                           sx={{ fontSize: 32, color: "#249EA0" }}
                         />
+                        <Typography sx={{ fontSize: 12, color: "#249EA0" }}>
+                          Transfer
+                        </Typography>
                       </Link>
                     }
                   />
                   <BottomNavigationAction
-                    label="Tarik Tunai"
                     icon={
-                      <BrowserUpdatedIcon
-                        sx={{ fontSize: 32, color: "#249EA0" }}
-                      />
+                      <Link to="/" style={{ textDecoration: "none" }}>
+                        <BrowserUpdatedIcon
+                          sx={{ fontSize: 32, color: "#249EA0" }}
+                        />
+                        <Typography sx={{ fontSize: 12, color: "#249EA0" }}>
+                          Tarik Tunai
+                        </Typography>
+                      </Link>
                     }
                   />
 
                   <BottomNavigationAction
-                    label="Riwayat"
                     icon={
-                      <Link to="/riwayat">
+                      <Link to="/riwayat" style={{ textDecoration: " none" }}>
                         <HistoryIcon sx={{ fontSize: 32, color: "#249EA0" }} />
+                        <Typography sx={{ fontSize: 12, color: "#249EA0" }}>
+                          Riwayat
+                        </Typography>
                       </Link>
                     }
                   />

@@ -29,7 +29,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export default function Topup() {
   return (
     <div>
-      <Container sx={{ width: 438 }}>
+      <Container sx={{ minWidth: 430 }}>
         <Link to="/">
           <Navbar>Top Up</Navbar>
         </Link>

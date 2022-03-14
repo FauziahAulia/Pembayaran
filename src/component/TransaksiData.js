@@ -33,60 +33,58 @@ export default function FixedBottomNavigation() {
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ width: 480, mt: -1, pb: 7, p: 0 }} ref={ref}>
+    <Box sx={{ minWidth: 360, mt: -1, pb: 7, p: 0 }} ref={ref}>
       <CssBaseline />
       {/* <Card sx={{ width: 360, height: 80 }}> */}
       <List align="center">
-        {messages.map(({ name, keterangan, topup, send, person }, index) => (
-          <Card
-            elevation={2}
-            sx={{ width: 480, height: 62, mb: 2, mt: 2 }}
-            style={{
-              backgroundColor: "#fff",
-              //border radius
-              borderBottomLeftRadius: 10,
-              borderBottomRightRadius: 10,
-              borderTopRightRadius: 10,
-              borderTopLeftRadius: 10,
-              overflow: "hidden",
-            }}
-          >
-            <ListItem button key={index + person}>
-              <ListItemText
-                sx={{ width: 10, height: 35, ml: 0, mb: 3 }}
-                style={{
-                  //border radius
-                  borderBottomLeftRadius: 10,
-                  borderBottomRightRadius: 10,
-                  borderTopRightRadius: 10,
-                  borderTopLeftRadius: 10,
-                  overflow: "hidden",
-                }}
-              >
-                <Img
-                  alt="Profile Picture"
-                  src={person}
-                  sx={{ width: 32, height: 32 }}
+        {messages.map(
+          ({ name, keterangan, nominal, kategori, person }, index) => (
+            <Card
+              elevation={2}
+              sx={{ minWidth: 380, height: 62, mb: 2, mt: 2 }}
+              style={{
+                backgroundColor: "#fff",
+                //border radius
+                borderBottomLeftRadius: 10,
+                borderBottomRightRadius: 10,
+                borderTopRightRadius: 10,
+                borderTopLeftRadius: 10,
+                overflow: "hidden",
+              }}
+            >
+              <ListItem button key={index + person}>
+                <ListItemText
+                  sx={{ width: 10, height: 35, ml: 0, mb: 3 }}
+                  style={{
+                    //border radius
+                    borderBottomLeftRadius: 10,
+                    borderBottomRightRadius: 10,
+                    borderTopRightRadius: 10,
+                    borderTopLeftRadius: 10,
+                    overflow: "hidden",
+                  }}
+                >
+                  <Img
+                    alt="Profile Picture"
+                    src={person}
+                    sx={{ width: 32, height: 32 }}
+                  />
+                </ListItemText>
+                <ListItemText
+                  primary={name}
+                  secondary={keterangan}
+                  sx={{ width: 190, ml: 2, mb: 3, p: "auto" }}
                 />
-              </ListItemText>
-              <ListItemText
-                primary={name}
-                secondary={keterangan}
-                sx={{ width: 190, ml: 2, mb: 3, p: "auto" }}
-              />
-              <ListItemText
-                primary={topup}
-                sx={{ mt: -3, textAlign: "right", mr: -3 }}
-                style={{ color: "green" }}
-              />
-              <ListItemText
-                primary={send}
-                sx={{ mt: -3, textAlign: "right" }}
-                style={{ color: "red" }}
-              />
-            </ListItem>
-          </Card>
-        ))}
+                <ListItemText
+                  primary={nominal}
+                  sx={{ mt: -2, textAlign: "right", mr: 0 }}
+                  style={{ color: `${kategori === "topup" ? "green" : "red"}` }}
+                />
+               
+              </ListItem>
+            </Card>
+          )
+        )}
       </List>
       {/* </Card> */}
     </Box>
@@ -96,25 +94,29 @@ export default function FixedBottomNavigation() {
 const TransaksiData = [
   {
     name: "Send Money",
-    send: "-Rp20.000",
+    nominal: "-Rp20.000",
+    kategori: "send",
     keterangan: "01 Maret 2022 · 8.03 AM",
     person: require("../assets/Image/wallet.png"),
   },
   {
     name: "Send Money",
-    send: "-Rp83.000",
+    nominal: "-Rp20.000",
+    kategori: "send",
     keterangan: "27 Februari 2022 · 9.23 AM",
     person: require("../assets/Image/wallet.png"),
   },
   {
     name: "Top Up",
-    topup: "Rp200.000",
+    nominal: "Rp85.000",
+    kategori: "topup",
     keterangan: "19 Februari 2022 · 4.13 M",
     person: require("../assets/Image/plus.png"),
   },
   {
     name: "Send Money",
-    send: "-Rp60.000",
+    nominal: "-Rp20.000",
+    kategori: "send",
     keterangan: "18 Februari 2022 · 8.03 AM",
     person: require("../assets/Image/wallet.png"),
   },

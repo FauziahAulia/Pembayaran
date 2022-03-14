@@ -28,7 +28,7 @@ export default function FixedBottomNavigation() {
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ width: 410, pb: 7 }} ref={ref}>
+    <Box sx={{ minWidth: 400, pb: 7 }} ref={ref}>
       <Typography
         sx={{ mt: 2, ml: 0 }}
         style={{ fontSize: 20, fontWeight: "bold" }}
@@ -42,7 +42,7 @@ export default function FixedBottomNavigation() {
         {messages.map(({ name, keterangan, price, person }, index) => (
           <Card
             elevation={2}
-            sx={{ width: 400, height: 62, mb: 2, mt: 0 }}
+            sx={{ minWidth: 360, height: 62, mb: 2, mt: 0 }}
             style={{
               backgroundColor: "#fff",
               //border radius
@@ -60,11 +60,11 @@ export default function FixedBottomNavigation() {
               <ListItemText
                 primary={name}
                 secondary={keterangan}
-                sx={{ width: 190, m: "auto", p: "auto" }}
+                sx={{ minWidth: 190, m: "auto", p: "auto" }}
               />
               <ListItemText
                 primary={price}
-                sx={{ width: 70, mt: -2, textAlign: "right" }}
+                sx={{ minWidth: 50, mt: -2, textAlign: "right" }}
               />
             </ListItem>
           </Card>

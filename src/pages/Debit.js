@@ -117,7 +117,7 @@ export default function Debit() {
 
   return (
     <div>
-      <Container sx={{ width: 430 }}>
+      <Container sx={{ minWidth: 430 }}>
         <Link to="/topup">
           <Navbar>Top Up - Kartu Debit</Navbar>
         </Link>
