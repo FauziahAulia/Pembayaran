@@ -23,7 +23,7 @@ import TransaksiData from "../component/TransaksiData";
 export default function Transfer() {
   return (
     <div>
-      <Container>
+      <Container sx={{ minWidth: 405 }}>
         <Link to="/">
           <Navbar>Transfer</Navbar>
         </Link>

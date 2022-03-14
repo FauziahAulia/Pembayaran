@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Container,
   Box,
   Typography,
   CssBaseline,
@@ -28,49 +29,51 @@ export default function FixedBottomNavigation() {
   }, [value, setMessages]);
 
   return (
-    <Box sx={{ minWidth: 400, pb: 7 }} ref={ref}>
-      <Typography
-        sx={{ mt: 2, ml: 0 }}
-        style={{ fontSize: 20, fontWeight: "bold" }}
-      >
-        Transaksi terbaru
-      </Typography>
+    <Container sx={{ minWidth: 405 }}>
+      <Box sx={{ minWidth: 380, pb: 7 }} ref={ref}>
+        <Typography
+          sx={{ mt: 2, ml: -2 }}
+          style={{ fontSize: 20, fontWeight: "bold" }}
+        >
+          Transaksi terbaru
+        </Typography>
 
-      <CssBaseline />
+        <CssBaseline />
 
-      <List align="center">
-        {messages.map(({ name, keterangan, price, person }, index) => (
-          <Card
-            elevation={2}
-            sx={{ minWidth: 360, height: 62, mb: 2, mt: 0 }}
-            style={{
-              backgroundColor: "#fff",
-              //border radius
-              borderBottomLeftRadius: 10,
-              borderBottomRightRadius: 10,
-              borderTopRightRadius: 10,
-              borderTopLeftRadius: 10,
-              overflow: "hidden",
-            }}
-          >
-            <ListItem button key={index + person}>
-              <ListItemAvatar sx={{ ml: -1 }}>
-                <Avatar alt="Profile Picture" src={person} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={name}
-                secondary={keterangan}
-                sx={{ minWidth: 190, m: "auto", p: "auto" }}
-              />
-              <ListItemText
-                primary={price}
-                sx={{ minWidth: 50, mt: -2, textAlign: "right" }}
-              />
-            </ListItem>
-          </Card>
-        ))}
-      </List>
-    </Box>
+        <List align="center">
+          {messages.map(({ name, keterangan, price, person }, index) => (
+            <Card
+              elevation={2}
+              sx={{ minWidth: 300, height: 62, mb: 2, mt: 0, ml: -2 }}
+              style={{
+                backgroundColor: "#fff",
+                //border radius
+                borderBottomLeftRadius: 10,
+                borderBottomRightRadius: 10,
+                borderTopRightRadius: 10,
+                borderTopLeftRadius: 10,
+                overflow: "hidden",
+              }}
+            >
+              <ListItem button key={index + person}>
+                <ListItemAvatar sx={{ ml: -1 }}>
+                  <Avatar alt="Profile Picture" src={person} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={name}
+                  secondary={keterangan}
+                  sx={{ minWidth: 190, m: "auto", p: "auto" }}
+                />
+                <ListItemText
+                  primary={price}
+                  sx={{ minWidth: 50, mt: -2, textAlign: "right" }}
+                />
+              </ListItem>
+            </Card>
+          ))}
+        </List>
+      </Box>
+    </Container>
   );
 }
 
