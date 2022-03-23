@@ -25,6 +25,7 @@ import "@fontsource/roboto/700.css";
 import Navbar from "../component/Navbar";
 // Import React router
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -144,10 +145,16 @@ export default function Bank() {
       `Pesan: ${pesan}`,
       `\n`
     );
-  };
-  const handleNominal = (event) => {
-    setPersonName(event.target.value);
-    console.log(event.target.value);
+    const json = {
+      selectBank: personName,
+      accountNumber: nomor,
+      balance: saldo,
+      transferAmount: transfer,
+      message: pesan,
+    };
+    axios.post("http://localhost:8000/profile", json).then((result) => {
+      console.log(result);
+    });
   };
 
   const [open, setOpen] = React.useState(false);

@@ -13,7 +13,7 @@ export default function Navbar(props) {
     <div>
       <AppBar
         position="fixed"
-        sx={{ xs: 3, bgcolor: "#249EA0", width: "100%" }}
+        sx={{ xs: 3, bgcolor: "#249EA0", minWidth: "430" }}
       >
         <Box sx={{ flexGrow: 1, width: "100%", ml: 1 }}>
           <IconButton sx={{ color: "#fff" }}>
